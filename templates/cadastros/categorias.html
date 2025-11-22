@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Gestão de Categorias - Stokki{% endblock %}
+{% block header_title %}Gestão de Categorias{% endblock %}
+
+{% block content %}
+<div class="materials-header">
+    <h2 class="materials-title">Categorias</h2>
+    <button class="action-btn primary" onclick="openModal()">
+        <i data-lucide="plus-circle"></i>
+        Nova Categoria
+    </button>
+</div>
+
+<div class="materials-table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th style="text-align: center;">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Fixação</td>
+                <td>Parafusos, porcas, arruelas</td>
+                <td style="text-align: center;">
+                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
+                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Ferramentas</td>
+                <td>Ferramentas manuais e elétricas</td>
+                <td style="text-align: center;">
+                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
+                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Elétrica</td>
+                <td>Componentes elétricos</td>
+                <td style="text-align: center;">
+                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
+                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div id="categoryModal" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3 class="modal-title">Criar Nova Categoria</h3>
+            <button class="modal-close" onclick="closeModal()">
+                <i data-lucide="x" size="24"></i>
+            </button>
+        </div>
+        
+        <form>
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="nome">Nome da Categoria *</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: Fixação">
+            </div>
+
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <input type="text" id="descricao" name="descricao" placeholder="Ex: Parafusos, porcas, arruelas">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="btn-confirm">Salvar Categoria</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById('categoryModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('categoryModal').classList.remove('active');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('categoryModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+</script>
+{% endblock %}

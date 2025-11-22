@@ -100,3 +100,11 @@ async def cadastros_fornecedores(request: Request):
 @app.get("/cadastros/enderecos")
 async def cadastros_enderecos(request: Request):
     return templates.TemplateResponse("cadastros/enderecos.html", {"request": request})
+
+@app.get("/cadastros/categorias")
+async def cadastros_categorias(request: Request):
+    return templates.TemplateResponse("cadastros/categorias.html", {"request": request})
+
+@app.get("/cadastros/unidades")
+async def cadastros_unidades(request: Request):
+    return templates.TemplateResponse("cadastros/unidades.html", {"request": request})
