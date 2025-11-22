@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Posição de Estoque - Stokki{% endblock %}
+{% block header_title %}Relatório - Posição de Estoque{% endblock %}
+
+{% block content %}
+<div class="report-card">
+    <div class="report-header">
+        <h2 class="report-title">Posição de Estoque</h2>
+        <button class="export-btn">
+            <i data-lucide="download" size="16"></i>
+            Exportar
+        </button>
+    </div>
+
+    <div class="report-filters" style="box-shadow: none; padding: 0; margin-bottom: 1.5rem; background: none;">
+        <div class="filter-group">
+            <input type="text" placeholder="Buscar produto...">
+        </div>
+        <div class="filter-group">
+            <select>
+                <option value="">Todas as categorias</option>
+                <option value="fixacao">Fixação</option>
+                <option value="eletrica">Elétrica</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <select>
+                <option value="">Todos os endereços</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>SKU</th>
+                    <th>Produto</th>
+                    <th>Categoria</th>
+                    <th>Endereço</th>
+                    <th style="text-align: right;">Saldo Atual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PAR-M8-001</td>
+                    <td>Parafuso M8 x 50mm</td>
+                    <td>Fixação</td>
+                    <td>01-A-01</td>
+                    <td style="text-align: right; font-weight: bold;">500UN</td>
+                </tr>
+                <tr>
+                    <td>POR-M8-001</td>
+                    <td>Porca M8</td>
+                    <td>Fixação</td>
+                    <td>01-A-03</td>
+                    <td style="text-align: right; font-weight: bold;">450UN</td>
+                </tr>
+                <tr>
+                    <td>ARR-10-001</td>
+                    <td>Arruela Lisa 10mm</td>
+                    <td>Fixação</td>
+                    <td>01-A-05</td>
+                    <td style="text-align: right; font-weight: bold;">300UN</td>
+                </tr>
+                <tr>
+                    <td>CAB-25-001</td>
+                    <td>Cabo Elétrico 2.5mm</td>
+                    <td>Elétrica</td>
+                    <td>02-B-01</td>
+                    <td style="text-align: right; font-weight: bold;">250UN</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

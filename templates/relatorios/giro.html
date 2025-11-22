@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Giro de Estoque - Stokki{% endblock %}
+{% block header_title %}Relatório - Giro de Estoque{% endblock %}
+
+{% block content %}
+<div class="report-kpi-grid">
+    <div class="report-kpi-card">
+        <div class="report-kpi-label">Giro Médio Geral</div>
+        <div class="report-kpi-value" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i data-lucide="trending-up" class="trend-up"></i> 7.3x
+        </div>
+        <div class="report-kpi-subtext">Giros por ano</div>
+    </div>
+    <div class="report-kpi-card">
+        <div class="report-kpi-label">Dias Médios em Estoque</div>
+        <div class="report-kpi-value">50 dias</div>
+        <div class="report-kpi-subtext">Tempo médio de permanência</div>
+    </div>
+    <div class="report-kpi-card">
+        <div class="report-kpi-label">Produtos com Baixo Giro</div>
+        <div class="report-kpi-value" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i data-lucide="trending-down" class="trend-down"></i> 1 item
+        </div>
+        <div class="report-kpi-subtext">Requer atenção</div>
+    </div>
+</div>
+
+<div class="report-card">
+    <div class="report-header">
+        <h2 class="report-title">Análise de Giro por Produto</h2>
+        <button class="export-btn">
+            <i data-lucide="download" size="16"></i>
+            Exportar
+        </button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th style="text-align: right;">Giro (vezes/ano)</th>
+                    <th style="text-align: right;">Dias em Estoque</th>
+                    <th style="text-align: center;">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Parafuso M8 x 50mm</td>
+                    <td style="text-align: right;">12.5x</td>
+                    <td style="text-align: right;">29 dias</td>
+                    <td style="text-align: center;"><span class="badge-status status-excellent">Excelente</span></td>
+                </tr>
+                <tr>
+                    <td>Porca M8 8.3</td>
+                    <td style="text-align: right;">8.3x</td>
+                    <td style="text-align: right;">44 dias</td>
+                    <td style="text-align: center;"><span class="badge-status status-good">Bom</span></td>
+                </tr>
+                <tr>
+                    <td>Cabo Elétrico 2.5mm</td>
+                    <td style="text-align: right;">6.2x</td>
+                    <td style="text-align: right;">58 dias</td>
+                    <td style="text-align: center;"><span class="badge-status status-regular">Regular</span></td>
+                </tr>
+                <tr>
+                    <td>Arruela Lisa 10mm</td>
+                    <td style="text-align: right;">2.1x</td>
+                    <td style="text-align: right;">171 dias</td>
+                    <td style="text-align: center;"><span class="badge-status status-low">Baixo</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top: 2rem; background-color: #F9FAFB; padding: 1.5rem; border-radius: 0.5rem;">
+        <h3 style="font-weight: bold; margin-bottom: 0.5rem;">Interpretação:</h3>
+        <ul style="list-style: none; font-size: 0.875rem; color: #4B5563;">
+            <li style="margin-bottom: 0.25rem;"><span style="color: #10B981; font-weight: bold;">Giro Alto (> 10x/ano):</span> Produtos de alta rotatividade - Reabastecimento frequente necessário</li>
+            <li style="margin-bottom: 0.25rem;"><span style="color: #1E3A8A; font-weight: bold;">Giro Bom (6-10x/ano):</span> Rotatividade saudável</li>
+            <li style="margin-bottom: 0.25rem;"><span style="color: #F59E0B; font-weight: bold;">Giro Regular (3-6x/ano):</span> Monitore para evitar excesso de estoque</li>
+            <li style="margin-bottom: 0.25rem;"><span style="color: #EF4444; font-weight: bold;">Giro Baixo (< 3x/ano):</span> Possível excesso de estoque - Considere promoções</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

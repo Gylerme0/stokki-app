@@ -64,3 +64,23 @@ async def ordens_criar(request: Request):
 @app.get("/ordens/lista/{id}")
 async def ordens_lista(request: Request, id: str):
     return templates.TemplateResponse("ordens/lista.html", {"request": request, "id": id})
+
+@app.get("/relatorios")
+async def relatorios_index(request: Request):
+    return templates.TemplateResponse("relatorios/index.html", {"request": request})
+
+@app.get("/relatorios/posicao")
+async def relatorios_posicao(request: Request):
+    return templates.TemplateResponse("relatorios/posicao.html", {"request": request})
+
+@app.get("/relatorios/rastreabilidade")
+async def relatorios_rastreabilidade(request: Request):
+    return templates.TemplateResponse("relatorios/rastreabilidade.html", {"request": request})
+
+@app.get("/relatorios/giro")
+async def relatorios_giro(request: Request):
+    return templates.TemplateResponse("relatorios/giro.html", {"request": request})
+
+@app.get("/relatorios/abc")
+async def relatorios_abc(request: Request):
+    return templates.TemplateResponse("relatorios/abc.html", {"request": request})

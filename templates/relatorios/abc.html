@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Curva ABC - Stokki{% endblock %}
+{% block header_title %}Relatório - Curva ABC{% endblock %}
+
+{% block content %}
+<div class="report-kpi-grid">
+    <div class="report-kpi-card">
+        <div class="report-kpi-label">Classe A (Críticos)</div>
+        <div class="report-kpi-value" style="color: #EF4444;">3 itens</div>
+        <div class="report-kpi-subtext">80% do valor total</div>
+    </div>
+    <div class="report-kpi-card">
+        <div class="report-kpi-label">Classe B (Importantes)</div>
+        <div class="report-kpi-value" style="color: #F59E0B;">2 itens</div>
+        <div class="report-kpi-subtext">15% do valor total</div>
+    </div>
+    <div class="report-kpi-card">
+        <div class="report-kpi-label">Classe C (Normais)</div>
+        <div class="report-kpi-value" style="color: #10B981;">1 itens</div>
+        <div class="report-kpi-subtext">5% do valor total</div>
+    </div>
+</div>
+
+<div class="report-card">
+    <div class="report-header">
+        <h2 class="report-title">Análise de Curva ABC</h2>
+        <button class="export-btn">
+            <i data-lucide="download" size="16"></i>
+            Exportar
+        </button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th style="text-align: center;">Classe</th>
+                    <th style="text-align: right;">Valor Total</th>
+                    <th style="text-align: right;">% Acumulado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Parafuso M8 x 50mm</td>
+                    <td style="text-align: center;"><span class="badge-abc badge-a">Classe A</span></td>
+                    <td style="text-align: right;">R$ 45.000,00</td>
+                    <td style="text-align: right;">30%</td>
+                </tr>
+                <tr>
+                    <td>Porca M8</td>
+                    <td style="text-align: center;"><span class="badge-abc badge-a">Classe A</span></td>
+                    <td style="text-align: right;">R$ 35.000,00</td>
+                    <td style="text-align: right;">23.3%</td>
+                </tr>
+                <tr>
+                    <td>Cabo Elétrico 2.5mm</td>
+                    <td style="text-align: center;"><span class="badge-abc badge-a">Classe A</span></td>
+                    <td style="text-align: right;">R$ 40.000,00</td>
+                    <td style="text-align: right;">26.7%</td>
+                </tr>
+                <tr>
+                    <td>Arruela Lisa 10mm</td>
+                    <td style="text-align: center;"><span class="badge-abc badge-b">Classe B</span></td>
+                    <td style="text-align: right;">R$ 15.000,00</td>
+                    <td style="text-align: right;">10%</td>
+                </tr>
+                <tr>
+                    <td>Chave Philips</td>
+                    <td style="text-align: center;"><span class="badge-abc badge-b">Classe B</span></td>
+                    <td style="text-align: right;">R$ 10.000,00</td>
+                    <td style="text-align: right;">6.7%</td>
+                </tr>
+                <tr>
+                    <td>Fita Isolante</td>
+                    <td style="text-align: center;"><span class="badge-abc badge-c">Classe C</span></td>
+                    <td style="text-align: right;">R$ 5.000,00</td>
+                    <td style="text-align: right;">3.3%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top: 2rem; background-color: #F9FAFB; padding: 1.5rem; border-radius: 0.5rem;">
+        <h3 style="font-weight: bold; margin-bottom: 0.5rem;">Interpretação:</h3>
+        <ul style="list-style: none; font-size: 0.875rem; color: #4B5563;">
+            <li style="margin-bottom: 0.25rem;"><span style="color: #EF4444; font-weight: bold;">Classe A:</span> Produtos de alto valor - Controle rigoroso e reabastecimento prioritário</li>
+            <li style="margin-bottom: 0.25rem;"><span style="color: #F59E0B; font-weight: bold;">Classe B:</span> Produtos de valor médio - Controle moderado</li>
+            <li style="margin-bottom: 0.25rem;"><span style="color: #10B981; font-weight: bold;">Classe C:</span> Produtos de baixo valor - Controle simplificado</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

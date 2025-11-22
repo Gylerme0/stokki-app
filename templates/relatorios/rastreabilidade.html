@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Rastreabilidade - Stokki{% endblock %}
+{% block header_title %}Relatório - Rastreabilidade{% endblock %}
+
+{% block content %}
+<div class="report-card">
+    <div class="report-header">
+        <h2 class="report-title">Log de Movimentações</h2>
+        <button class="export-btn">
+            <i data-lucide="download" size="16"></i>
+            Exportar
+        </button>
+    </div>
+
+    <div class="report-filters" style="box-shadow: none; padding: 0; margin-bottom: 1.5rem; background: none;">
+        <div class="filter-group">
+            <label style="font-size: 0.75rem; color: #6B7280; margin-bottom: 0.25rem; display: block;">Data Inicial</label>
+            <input type="date">
+        </div>
+        <div class="filter-group">
+            <label style="font-size: 0.75rem; color: #6B7280; margin-bottom: 0.25rem; display: block;">Data Final</label>
+            <input type="date">
+        </div>
+        <div class="filter-group" style="display: flex; align-items: flex-end;">
+            <select>
+                <option value="">Produto</option>
+            </select>
+        </div>
+        <div class="filter-group" style="display: flex; align-items: flex-end;">
+            <select>
+                <option value="">Usuário</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Data/Hora</th>
+                    <th>Produto</th>
+                    <th>Qtd</th>
+                    <th>Tipo</th>
+                    <th>Origem</th>
+                    <th>Destino</th>
+                    <th>Usuário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>29/10/2025 14:30</td>
+                    <td>Parafuso M8</td>
+                    <td>100</td>
+                    <td><span class="status-badge status-completed">Entrada</span></td>
+                    <td>Fornecedor C</td>
+                    <td>01-A-02</td>
+                    <td>Jorge Carlos</td>
+                </tr>
+                <tr>
+                    <td>29/10/2025 10:15</td>
+                    <td>Porca M8</td>
+                    <td>50</td>
+                    <td><span class="status-badge status-low">Saída</span></td>
+                    <td>Fornecedor A</td>
+                    <td>01-A-01</td>
+                    <td>João Silva</td>
+                </tr>
+                <tr>
+                    <td>28/10/2025 16:45</td>
+                    <td>Arruela Lisa</td>
+                    <td>75</td>
+                    <td><span class="status-badge status-good">Transferência</span></td>
+                    <td>Fornecedor B</td>
+                    <td>01-A-03</td>
+                    <td>Maria Santos</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

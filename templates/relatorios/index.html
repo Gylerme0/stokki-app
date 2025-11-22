@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Relatórios - Stokki{% endblock %}
+{% block header_title %}Relatórios{% endblock %}
+
+{% block content %}
+<div class="reports-grid">
+    <a href="/relatorios/posicao" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="box" size="48"></i>
+        </div>
+        <div class="movement-title">Posição de Estoque</div>
+    </a>
+
+    <a href="/relatorios/rastreabilidade" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="history" size="48"></i>
+        </div>
+        <div class="movement-title">Rastreabilidade</div>
+    </a>
+
+    <a href="/relatorios/abc" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="bar-chart-3" size="48"></i>
+        </div>
+        <div class="movement-title">Curva ABC</div>
+    </a>
+
+    <a href="/relatorios/giro" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="trending-up" size="48"></i>
+        </div>
+        <div class="movement-title">Giro de Estoque</div>
+    </a>
+</div>
+{% endblock %}
