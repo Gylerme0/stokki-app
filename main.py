@@ -120,3 +120,7 @@ async def administracao_usuarios(request: Request):
 @app.get("/administracao/auditoria")
 async def administracao_auditoria(request: Request):
     return templates.TemplateResponse("administracao/auditoria.html", {"request": request})
+
+@app.get("/chat")
+async def chat_index(request: Request):
+    return templates.TemplateResponse("chat/index.html", {"request": request})

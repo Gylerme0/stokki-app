@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}Assistente IA - Stokki{% endblock %}
+{% block header_title %}Assistente IA{% endblock %}
+
+{% block content %}
+<div class="chat-container">
+    <div class="chat-messages" id="chatMessages">
+        <!-- Welcome Message -->
+        <div class="message ai">
+            <div class="avatar ai">
+                <i data-lucide="sparkles" size="20"></i>
+            </div>
+            <div class="message-content">
+                <p>Olá! Sou o assistente inteligente do Stokki. Estou aqui para ajudar você a gerenciar seu estoque de forma mais eficiente. Como posso ajudar hoje?</p>
+            </div>
+        </div>
+
+        <!-- Example Interaction (Hidden by default, shown via JS for demo) -->
+        <div class="message user" style="display: none;">
+            <div class="avatar user">
+                <i data-lucide="user" size="20"></i>
+            </div>
+            <div class="message-content">
+                <p>Análise de movimentações</p>
+            </div>
+        </div>
+
+        <div class="message ai" style="display: none;">
+            <div class="avatar ai">
+                <i data-lucide="sparkles" size="20"></i>
+            </div>
+            <div class="message-content">
+                <p>Aqui está um resumo das movimentações dos últimos 6 meses:</p>
+                <div class="chart-placeholder">
+                    <!-- Placeholder for chart -->
+                    <div style="height: 200px; background: linear-gradient(to right, #f3f4f6 0%, #e5e7eb 100%); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: #6b7280;">
+                        [Gráfico de Movimentações]
+                    </div>
+                </div>
+                <div class="chat-card">
+                    <div class="card-icon card-warning">
+                        <i data-lucide="alert-triangle" size="20"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>3 itens em risco de vencimento</h4>
+                        <p>Nos próximos 15 dias</p>
+                    </div>
+                </div>
+                <div class="chat-card">
+                    <div class="card-icon card-info">
+                        <i data-lucide="trending-up" size="20"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>Análise de Curva ABC</h4>
+                        <p>Otimize seu estoque</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-input-area">
+        <div class="suggestion-chips">
+            <div class="chip" onclick="sendSuggestion('Ver relatório de estoque')">
+                <i data-lucide="bar-chart-2" size="14"></i>
+                Ver relatório de estoque
+            </div>
+            <div class="chip" onclick="sendSuggestion('Itens com estoque baixo')">
+                <i data-lucide="box" size="14"></i>
+                Itens com estoque baixo
+            </div>
+            <div class="chip" onclick="sendSuggestion('Análise de movimentações')">
+                <i data-lucide="trending-up" size="14"></i>
+                Análise de movimentações
+            </div>
+            <div class="chip" onclick="sendSuggestion('Próximos ao vencimento')">
+                <i data-lucide="alert-triangle" size="14"></i>
+                Próximos ao vencimento
+            </div>
+        </div>
+        <div class="input-wrapper" style="margin-top: 1rem;">
+            <input type="text" class="chat-input" placeholder="Pergunte sobre seu estoque, análises, relatórios..." id="chatInput">
+            <button class="send-btn" onclick="sendMessage()">
+                <i data-lucide="send" size="20"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sendSuggestion(text) {
+        const input = document.getElementById('chatInput');
+        input.value = text;
+        sendMessage();
+    }
+
+    function sendMessage() {
+        const input = document.getElementById('chatInput');
+        const text = input.value.trim();
+        
+        if (text) {
+            // Add user message
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'message user';
+            userMsgDiv.innerHTML = `
+                <div class="avatar user">
+                    <i data-lucide="user" size="20"></i>
+                </div>
+                <div class="message-content">
+                    <p>${text}</p>
+                </div>
+            `;
+            messagesContainer.appendChild(userMsgDiv);
+            
+            // Clear input
+            input.value = '';
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            // Re-initialize icons for new elements
+            lucide.createIcons();
+
+            // Simulate AI response (Demo only)
+            if (text.toLowerCase().includes('análise') || text.toLowerCase().includes('movimentações')) {
+                setTimeout(() => {
+                    const aiMsgDiv = document.createElement('div');
+                    aiMsgDiv.className = 'message ai';
+                    aiMsgDiv.innerHTML = `
+                        <div class="avatar ai">
+                            <i data-lucide="sparkles" size="20"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>Aqui está um resumo das movimentações dos últimos 6 meses:</p>
+                            <div class="chart-placeholder">
+                                <div style="height: 200px; background: linear-gradient(to right, #f3f4f6 0%, #e5e7eb 100%); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: #6b7280;">
+                                    [Gráfico de Movimentações]
+                                </div>
+                            </div>
+                            <div class="chat-card">
+                                <div class="card-icon card-warning">
+                                    <i data-lucide="alert-triangle" size="20"></i>
+                                </div>
+                                <div class="card-content">
+                                    <h4>3 itens em risco de vencimento</h4>
+                                    <p>Nos próximos 15 dias</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    messagesContainer.appendChild(aiMsgDiv);
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                    lucide.createIcons();
+                }, 1000);
+            }
+        }
+    }
+
+    // Allow Enter key to send
+    document.getElementById('chatInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+</script>
+{% endblock %}
