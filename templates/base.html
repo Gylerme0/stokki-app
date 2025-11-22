@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Stokki - WMS{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Using Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Using Lucide Icons (via CDN for simplicity in vanilla setup) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i data-lucide="box"></i>
+            <span>Stokki</span>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="#" class="nav-link active">
+                    <i data-lucide="layout-dashboard"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i data-lucide="arrow-left-right"></i>
+                    Movimentações
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i data-lucide="clipboard-list"></i>
+                    Ordens de Separação
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i data-lucide="bar-chart-3"></i>
+                    Relatórios
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i data-lucide="package"></i>
+                    Cadastros
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i data-lucide="shield-check"></i>
+                    Administração
+                </a>
+            </li>
+        </ul>
+
+        <button class="ai-assistant-btn">
+            <i data-lucide="sparkles"></i>
+            Assistente IA
+        </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="page-title">
+                <h1>{% block header_title %}Dashboard{% endblock %}</h1>
+            </div>
+            
+            <div class="search-bar">
+                <i data-lucide="search" size="20" color="#9CA3AF"></i>
+                <input type="text" placeholder="Buscar produtos, lotes, movimentações...">
+            </div>
+
+            <div class="header-actions">
+                <button class="icon-btn">
+                    <i data-lucide="bell"></i>
+                    <span class="notification-badge"></span>
+                </button>
+                <button class="icon-btn">
+                    <i data-lucide="user"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="dashboard-content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <script src="/static/js/script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

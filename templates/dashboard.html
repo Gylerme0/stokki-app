@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Stokki{% endblock %}
+{% block header_title %}Dashboard{% endblock %}
+
+{% block content %}
+<!-- KPI Cards -->
+<div class="kpi-grid">
+    <div class="kpi-card">
+        <div>
+            <div class="kpi-title">Valor Total do Inventário</div>
+            <div class="kpi-value">R$ 150.432,00</div>
+        </div>
+        <div class="kpi-icon">
+            <i data-lucide="box"></i>
+        </div>
+    </div>
+    
+    <div class="kpi-card">
+        <div>
+            <div class="kpi-title">Itens em Alerta</div>
+            <div class="kpi-value" style="color: #F59E0B;">12 Itens</div>
+        </div>
+        <div class="kpi-icon">
+            <i data-lucide="alert-triangle"></i>
+        </div>
+    </div>
+
+    <div class="kpi-card">
+        <div>
+            <div class="kpi-title">Itens Esgotados</div>
+            <div class="kpi-value" style="color: #EF4444;">3 Itens</div>
+        </div>
+        <div class="kpi-icon">
+            <i data-lucide="x-circle"></i>
+        </div>
+    </div>
+
+    <div class="kpi-card">
+        <div>
+            <div class="kpi-title">Ordens Pendentes</div>
+            <div class="kpi-value">5 Ordens</div>
+        </div>
+        <div class="kpi-icon">
+            <i data-lucide="clock"></i>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="quick-actions">
+    <h2 class="section-title">Ações Rápidas</h2>
+    <div class="actions-grid">
+        <button class="action-btn primary">
+            <i data-lucide="arrow-down-circle"></i>
+            Registrar Entrada
+        </button>
+        <button class="action-btn">
+            <i data-lucide="arrow-up-circle"></i>
+            Registrar Saída
+        </button>
+        <button class="action-btn">
+            <i data-lucide="arrow-left-right"></i>
+            Transferir Estoque
+        </button>
+        <button class="action-btn primary">
+            <i data-lucide="plus-circle"></i>
+            Nova Ordem
+        </button>
+    </div>
+</div>
+
+<!-- Order Monitor -->
+<div class="order-monitor">
+    <h2 class="section-title">Monitor de Ordens</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nº Ordem</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                    <th>Cliente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>OS-001</td>
+                    <td><span class="status-badge status-pending">Pendente</span></td>
+                    <td>29/10/2025</td>
+                    <td>Cliente A</td>
+                </tr>
+                <tr>
+                    <td>OS-002</td>
+                    <td><span class="status-badge status-picking">Em Separação</span></td>
+                    <td>29/10/2025</td>
+                    <td>Cliente B</td>
+                </tr>
+                <tr>
+                    <td>OS-003</td>
+                    <td><span class="status-badge status-completed">Separado</span></td>
+                    <td>28/10/2025</td>
+                    <td>Cliente C</td>
+                </tr>
+                <tr>
+                    <td>OS-004</td>
+                    <td><span class="status-badge status-pending">Pendente</span></td>
+                    <td>28/10/2025</td>
+                    <td>Cliente D</td>
+                </tr>
+                <tr>
+                    <td>OS-005</td>
+                    <td><span class="status-badge status-picking">Em Separação</span></td>
+                    <td>27/10/2025</td>
+                    <td>Cliente E</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
