@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Criar Ordem - Stokki{% endblock %}
+{% block header_title %}Criar Ordem de Separação{% endblock %}
+
+{% block content %}
+<div class="create-order-container">
+    <div class="pending-list">
+        <h3 style="margin-bottom: 1rem;">Pedidos Pendentes</h3>
+        <div class="table-container">
+             <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Pedido</th>
+                        <th>Cliente</th>
+                        <th>Itens</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>PED-001</td>
+                        <td>Cliente A</td>
+                        <td>5</td>
+                        <td>29/10/2025</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>PED-002</td>
+                        <td>Cliente B</td>
+                        <td>8</td>
+                        <td>29/10/2025</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>PED-003</td>
+                        <td>Cliente C</td>
+                        <td>3</td>
+                        <td>28/10/2025</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="drop-zone">
+        <h3 style="margin-bottom: 1rem;">Nova Ordem de Separação</h3>
+        <div style="text-align: center; color: #9CA3AF; margin-bottom: 2rem;">
+            <i data-lucide="layers" size="48" style="margin-bottom: 1rem;"></i>
+            <p>Selecione pedidos ao lado para criar uma ordem de separação</p>
+        </div>
+        <button class="action-btn primary" style="width: 100%;">
+            <i data-lucide="plus-circle"></i>
+            Agrupar e Criar Ordem
+        </button>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Monitor de Ordens - Stokki{% endblock %}
+{% block header_title %}Monitor de Ordens{% endblock %}
+
+{% block content %}
+<div class="order-monitor">
+    <div class="monitor-tabs">
+        <a href="#" class="monitor-tab active">Todas (7)</a>
+        <a href="#" class="monitor-tab">Pendente (2)</a>
+        <a href="#" class="monitor-tab">Em Separação (3)</a>
+        <a href="#" class="monitor-tab">Separado (1)</a>
+        <a href="#" class="monitor-tab">Cancelado (1)</a>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nº Ordem</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                    <th>Cliente/Pedido</th>
+                    <th>Itens</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>OS-001</td>
+                    <td><span class="status-badge status-pending">Pendente</span></td>
+                    <td>29/10/2025</td>
+                    <td>Cliente A</td>
+                    <td>5 Itens</td>
+                    <td>
+                        <button class="icon-btn"><i data-lucide="eye" size="16"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>OS-004</td>
+                    <td><span class="status-badge status-picking">Em Separação</span></td>
+                    <td>28/10/2025</td>
+                    <td>Cliente D</td>
+                    <td>12 Itens</td>
+                    <td>
+                        <button class="icon-btn"><i data-lucide="eye" size="16"></i></button>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>OS-005</td>
+                    <td><span class="status-badge status-picking">Em Separação</span></td>
+                    <td>28/10/2025</td>
+                    <td>Cliente D</td>
+                    <td>12 Itens</td>
+                    <td>
+                        <button class="icon-btn"><i data-lucide="eye" size="16"></i></button>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>OS-006</td>
+                    <td><span class="status-badge status-completed">Separado</span></td>
+                    <td>28/10/2025</td>
+                    <td>Cliente D</td>
+                    <td>12 Itens</td>
+                    <td>
+                        <button class="icon-btn"><i data-lucide="eye" size="16"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

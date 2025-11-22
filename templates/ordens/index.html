@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Ordens de Separação - Stokki{% endblock %}
+{% block header_title %}Ordens de Separação{% endblock %}
+
+{% block content %}
+<div class="orders-grid">
+    <a href="/ordens/monitor" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="monitor" size="48"></i>
+        </div>
+        <div class="movement-title">Monitor de Ordens</div>
+    </a>
+
+    <a href="/ordens/criar" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="plus-square" size="48"></i>
+        </div>
+        <div class="movement-title">Criar Nova Ordem</div>
+    </a>
+
+    <a href="/ordens/lista/123" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="list-checks" size="48"></i>
+        </div>
+        <div class="movement-title">Lista de Separação</div>
+    </a>
+</div>
+{% endblock %}
