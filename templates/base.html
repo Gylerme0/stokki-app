@@ -81,13 +81,73 @@
             </div>
 
             <div class="header-actions">
-                <button class="icon-btn">
-                    <i data-lucide="bell"></i>
-                    <span class="notification-badge"></span>
-                </button>
-                <button class="icon-btn">
-                    <i data-lucide="user"></i>
-                </button>
+                <div style="position: relative;">
+                    <button class="icon-btn" onclick="toggleDropdown('notifDropdown')">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <!-- Notification Dropdown -->
+                    <div id="notifDropdown" class="dropdown-menu">
+                        <div class="dropdown-header">Alertas e Ações (IA)</div>
+                        <div class="notification-item">
+                            <div class="notif-icon notif-warning">
+                                <i data-lucide="alert-triangle" size="16"></i>
+                            </div>
+                            <div class="notif-content">
+                                <h4>Estoque Mínimo Atingido</h4>
+                                <p>O item 'Parafuso M8' (50 un) atingiu o estoque mínimo de 50 un.</p>
+                                <button class="notif-action">Sugerir Pedido de Compra</button>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notif-icon notif-info">
+                                <i data-lucide="lightbulb" size="16"></i>
+                            </div>
+                            <div class="notif-content">
+                                <h4>Guardião de Validade (IA)</h4>
+                                <p>O Lote #1234 (Leite) vence em 10 dias. O giro médio é de 30 dias. Alto risco de perda.</p>
+                                <button class="notif-action">Sugerir Promoção / Ação</button>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notif-icon notif-danger">
+                                <i data-lucide="x-circle" size="16"></i>
+                            </div>
+                            <div class="notif-content">
+                                <h4>Ruptura de Estoque</h4>
+                                <p>O item 'Produto X' está zerado. 3 pedidos foram afetados.</p>
+                                <button class="notif-action">Ver Pedidos Afetados</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="position: relative;">
+                    <button class="icon-btn" onclick="toggleDropdown('profileDropdown')">
+                        <i data-lucide="user"></i>
+                    </button>
+                    <!-- Profile Dropdown -->
+                    <div id="profileDropdown" class="dropdown-menu">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i data-lucide="user" size="24"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h4>usuario</h4>
+                                <p class="role">Supervisor</p>
+                                <p>seu@email.com</p>
+                            </div>
+                        </div>
+                        <a href="#" class="profile-menu-item">
+                            <i data-lucide="settings" size="18"></i>
+                            Configurações
+                        </a>
+                        <a href="#" class="profile-menu-item logout">
+                            <i data-lucide="log-out" size="18"></i>
+                            Sair
+                        </a>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -97,9 +157,70 @@
         </div>
     </main>
 
+    <!-- Floating Chat Widget -->
+    <div id="floatingChat" class="floating-chat">
+        <div class="chat-header">
+            <div class="chat-header-title">
+                <i data-lucide="sparkles" size="18"></i>
+                Assistente IA
+            </div>
+            <div class="chat-header-actions">
+                <button class="chat-header-btn" onclick="window.location.href='/chat'" title="Expandir">
+                    <i data-lucide="maximize-2" size="18"></i>
+                </button>
+                <button class="chat-header-btn" onclick="toggleChat()" title="Fechar">
+                    <i data-lucide="x" size="18"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mini-chat-messages">
+            <div class="message ai" style="max-width: 100%;">
+                <div class="message-content" style="font-size: 0.875rem; padding: 0.75rem;">
+                    <p>Stokki. Como posso ajudar?</p>
+                </div>
+            </div>
+        </div>
+        <div class="mini-chat-input">
+            <input type="text" class="mini-input" placeholder="Pergunte sobre seu estoque...">
+            <button class="mini-send-btn">
+                <i data-lucide="send" size="14"></i>
+            </button>
+        </div>
+    </div>
+
     <script src="/static/js/script.js"></script>
     <script>
         lucide.createIcons();
+
+        // Widget Toggles
+        function toggleChat() {
+            const chat = document.getElementById('floatingChat');
+            chat.classList.toggle('active');
+        }
+
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(id);
+            // Close other dropdowns
+            document.querySelectorAll('.dropdown-menu').forEach(d => {
+                if (d.id !== id) d.classList.remove('active');
+            });
+            dropdown.classList.toggle('active');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.header-actions')) {
+                document.querySelectorAll('.dropdown-menu').forEach(d => {
+                    d.classList.remove('active');
+                });
+            }
+        });
+
+        // Hook sidebar button to open chat
+        document.querySelector('.ai-assistant-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleChat();
+        });
     </script>
 </body>
 </html>
