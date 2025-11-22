@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Movimentações - Stokki{% endblock %}
+{% block header_title %}Movimentações{% endblock %}
+
+{% block content %}
+<div class="movements-grid">
+    <a href="/movimentacoes/entrada" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="package-plus" size="48"></i>
+        </div>
+        <div class="movement-title">Registrar Entrada</div>
+    </a>
+
+    <a href="/movimentacoes/saida" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="package-minus" size="48"></i>
+        </div>
+        <div class="movement-title">Registrar Saída</div>
+    </a>
+
+    <a href="/movimentacoes/transferencia" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="arrow-left-right" size="48"></i>
+        </div>
+        <div class="movement-title">Transferência Interna</div>
+    </a>
+
+    <a href="/movimentacoes/ajuste" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="clipboard-edit" size="48"></i>
+        </div>
+        <div class="movement-title">Ajuste de Inventário</div>
+    </a>
+</div>
+{% endblock %}

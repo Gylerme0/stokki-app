@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Ajuste de Inventário - Stokki{% endblock %}
+{% block header_title %}Ajuste de Inventário{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <div class="form-header">
+        <div class="movement-icon">
+            <i data-lucide="clipboard-edit" size="32" color="#F59E0B"></i>
+        </div>
+        <h2>Ajuste de Inventário</h2>
+    </div>
+
+    <form>
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="produto">Produto *</label>
+            <select id="produto" name="produto">
+                <option value="" disabled selected>Buscar produto</option>
+                <option value="1">Produto X</option>
+                <option value="2">Produto Y</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="endereco">Endereço *</label>
+                <select id="endereco" name="endereco">
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="A1">Rua A - Prateleira 1</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Saldo Sistema</label>
+                <div class="saldo-info">150 UN</div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="quantidade">Quantidade Física Contada *</label>
+                <input type="number" id="quantidade" name="quantidade" value="0" min="0">
+            </div>
+            <div class="form-group">
+                <label>Diferença</label>
+                <div class="saldo-info diff-negative">-5 UN (Falta)</div>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="motivo">Motivo do Ajuste *</label>
+            <select id="motivo" name="motivo">
+                <option value="" disabled selected>Selecione o motivo</option>
+                <option value="contagem">Contagem Cíclica</option>
+                <option value="avaria">Avaria Identificada</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="observacoes">Observações</label>
+            <input type="text" id="observacoes" name="observacoes" placeholder="Detalhes adicionais sobre o ajuste">
+        </div>
+
+        <div class="form-actions">
+            <a href="/movimentacoes" class="btn-cancel">Cancelar</a>
+            <button type="submit" class="btn-confirm">Salvar Ajuste</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

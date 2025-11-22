@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Transferência Interna - Stokki{% endblock %}
+{% block header_title %}Transferência Interna{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <div class="form-header">
+        <div class="movement-icon">
+            <i data-lucide="arrow-left-right" size="32"></i>
+        </div>
+        <h2>Transferência Interna de Material</h2>
+    </div>
+
+    <form>
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="produto">Produto *</label>
+            <select id="produto" name="produto">
+                <option value="" disabled selected>Buscar produto</option>
+                <option value="1">Produto X</option>
+                <option value="2">Produto Y</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="quantidade">Quantidade *</label>
+                <input type="number" id="quantidade" name="quantidade" value="0" min="1">
+            </div>
+            <div class="form-group">
+                <label>Saldo Disponível</label>
+                <div class="saldo-info">150 UN</div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="origem">Endereço de Origem *</label>
+                <select id="origem" name="origem">
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="A1">Rua A - Prateleira 1</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="destino">Endereço de Destino *</label>
+                <select id="destino" name="destino">
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="B2">Rua B - Prateleira 2</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="observacoes">Observações</label>
+            <input type="text" id="observacoes" name="observacoes" placeholder="Motivo da transferência">
+        </div>
+
+        <div class="form-actions">
+            <a href="/movimentacoes" class="btn-cancel">Cancelar</a>
+            <button type="submit" class="btn-confirm">Transferir</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
