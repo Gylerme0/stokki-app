@@ -108,3 +108,15 @@ async def cadastros_categorias(request: Request):
 @app.get("/cadastros/unidades")
 async def cadastros_unidades(request: Request):
     return templates.TemplateResponse("cadastros/unidades.html", {"request": request})
+
+@app.get("/administracao")
+async def administracao_index(request: Request):
+    return templates.TemplateResponse("administracao/index.html", {"request": request})
+
+@app.get("/administracao/usuarios")
+async def administracao_usuarios(request: Request):
+    return templates.TemplateResponse("administracao/usuarios.html", {"request": request})
+
+@app.get("/administracao/auditoria")
+async def administracao_auditoria(request: Request):
+    return templates.TemplateResponse("administracao/auditoria.html", {"request": request})

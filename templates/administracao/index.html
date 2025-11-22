@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Administração - Stokki{% endblock %}
+{% block header_title %}Administração{% endblock %}
+
+{% block content %}
+<div class="admin-grid">
+    <a href="/administracao/usuarios" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="users" size="48"></i>
+        </div>
+        <div class="movement-title">Gestão de Usuários</div>
+    </a>
+
+    <a href="/administracao/auditoria" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="file-text" size="48"></i>
+        </div>
+        <div class="movement-title">Log de Auditoria</div>
+    </a>
+</div>
+{% endblock %}

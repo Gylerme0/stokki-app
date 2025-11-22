@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Log de Auditoria - Stokki{% endblock %}
+{% block header_title %}Log de Auditoria{% endblock %}
+
+{% block content %}
+<div class="materials-header">
+    <h2 class="materials-title">Registro de Ações Críticas</h2>
+    <button class="action-btn secondary">
+        <i data-lucide="download"></i>
+        Exportar Log
+    </button>
+</div>
+
+<div class="audit-filters">
+    <div class="form-group">
+        <select>
+            <option value="" disabled selected>Filtrar por período</option>
+            <option value="hoje">Hoje</option>
+            <option value="7dias">Últimos 7 dias</option>
+            <option value="30dias">Últimos 30 dias</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select>
+            <option value="" disabled selected>Filtrar por usuário</option>
+            <option value="joao">João Silva</option>
+            <option value="maria">Maria Santos</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select>
+            <option value="" disabled selected>Filtrar por ação</option>
+            <option value="create">Criação</option>
+            <option value="update">Edição</option>
+            <option value="delete">Exclusão</option>
+        </select>
+    </div>
+</div>
+
+<div class="materials-table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Data/Hora</th>
+                <th>Usuário</th>
+                <th>Ação Realizada</th>
+                <th>Detalhes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>29/10/2025 14:30:15</td>
+                <td>João Silva</td>
+                <td><span class="action-badge action-create">Criação de Material</span></td>
+                <td><span class="log-details">SKU: PAR-M8-001</span></td>
+            </tr>
+            <tr>
+                <td>29/10/2025 10:15:45</td>
+                <td>Maria Santos</td>
+                <td><span class="action-badge action-delete">Exclusão de Usuário</span></td>
+                <td><span class="log-details">Usuário: Carlos Pereira</span></td>
+            </tr>
+            <tr>
+                <td>28/10/2025 16:45:30</td>
+                <td>Pedro Costa</td>
+                <td><span class="action-badge action-update" style="background-color: #F3F4F6; color: #1F2937; border: 1px solid #E5E7EB;">Alteração de Preço</span></td>
+                <td><span class="log-details">Produto: Cabo Elétrico - R$ 50,00 -> R$ 55,00</span></td>
+            </tr>
+            <tr>
+                <td>28/10/2025 09:20:10</td>
+                <td>João Silva</td>
+                <td><span class="action-badge action-update" style="background-color: #F3F4F6; color: #1F2937; border: 1px solid #E5E7EB;">Ajuste de Inventário</span></td>
+                <td><span class="log-details">Produto: Parafuso M8 - Quantidade: -5 UN</span></td>
+            </tr>
+            <tr>
+                <td>27/10/2025 15:10:25</td>
+                <td>Admin</td>
+                <td><span class="action-badge action-create">Criação de Usuário</span></td>
+                <td><span class="log-details">Novo usuário: Ana Oliveira</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
