@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastros - Stokki{% endblock %}
+{% block header_title %}Cadastros{% endblock %}
+
+{% block content %}
+<div class="registrations-grid">
+    <a href="/cadastros/materiais" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="box" size="48"></i>
+        </div>
+        <div class="movement-title">Gerenciar Materiais</div>
+    </a>
+
+    <a href="/cadastros/fornecedores" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="truck" size="48"></i>
+        </div>
+        <div class="movement-title">Gerenciar Fornecedores</div>
+    </a>
+
+    <a href="/cadastros/enderecos" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="map-pin" size="48"></i>
+        </div>
+        <div class="movement-title">Gerenciar Endereços</div>
+    </a>
+
+    <a href="#" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="folder-tree" size="48"></i>
+        </div>
+        <div class="movement-title">Gerenciar Categorias</div>
+    </a>
+
+    <a href="#" class="movement-card">
+        <div class="movement-icon">
+            <i data-lucide="ruler" size="48"></i>
+        </div>
+        <div class="movement-title">Gerenciar Unidades de Medida</div>
+    </a>
+</div>
+{% endblock %}

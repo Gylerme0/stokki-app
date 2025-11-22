@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Gestão de Endereços - Stokki{% endblock %}
+{% block header_title %}Gestão de Endereços{% endblock %}
+
+{% block content %}
+<div class="materials-header">
+    <h2 class="materials-title">Endereços de Armazém</h2>
+    <button class="action-btn primary" onclick="openModal()">
+        <i data-lucide="plus-circle"></i>
+        Novo Endereço
+    </button>
+</div>
+
+<div class="materials-table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Tipo</th>
+                <th>Capacidade</th>
+                <th>Ocupado</th>
+                <th style="text-align: center;">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01-A-01</td>
+                <td><span class="status-badge status-good" style="background-color: #1E3A8A;">Picking</span></td>
+                <td>100 UN</td>
+                <td>75 UN</td>
+                <td style="text-align: center;">
+                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
+                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>01-A-02</td>
+                <td><span class="status-badge status-good" style="background-color: #1E3A8A;">Picking</span></td>
+                <td>100 UN</td>
+                <td>50 UN</td>
+                <td style="text-align: center;">
+                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
+                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>02-B-01</td>
+                <td><span class="status-badge status-completed" style="background-color: #10B981;">Armazém</span></td>
+                <td>500 UN</td>
+                <td>300 UN</td>
+                <td style="text-align: center;">
+                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
+                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div id="addressModal" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3 class="modal-title">Criar Novo Endereço</h3>
+            <button class="modal-close" onclick="closeModal()">
+                <i data-lucide="x" size="24"></i>
+            </button>
+        </div>
+        
+        <form>
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="codigo">Código do Endereço *</label>
+                <input type="text" id="codigo" name="codigo" placeholder="Ex: 01-A-03">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="tipo">Tipo *</label>
+                <select id="tipo" name="tipo">
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="picking">Picking</option>
+                    <option value="armazem">Armazém</option>
+                    <option value="doca">Doca</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="capacidade">Capacidade</label>
+                <input type="text" id="capacidade" name="capacidade" placeholder="Ex: 100 UN">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="btn-confirm">Salvar Endereço</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById('addressModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('addressModal').classList.remove('active');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('addressModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Gestão de Materiais - Stokki{% endblock %}
+{% block header_title %}Gestão de Materiais{% endblock %}
+
+{% block content %}
+<div class="materials-header">
+    <h2 class="materials-title">Materiais</h2>
+    <button class="action-btn primary" onclick="openModal()">
+        <i data-lucide="plus-circle"></i>
+        Novo Material
+    </button>
+</div>
+
+<div class="materials-table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>SKU</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Estoque</th>
+                <th>Unidade</th>
+                <th style="text-align: center;">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>PAR-M8-001</td>
+                <td>Parafuso M8 x 50mm</td>
+                <td>Fixação</td>
+                <td>500</td>
+                <td>UN</td>
+                <td style="text-align: center;">
+                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
+                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>POR-M8-001</td>
+                <td>Porca M8</td>
+                <td>Fixação</td>
+                <td>450</td>
+                <td>UN</td>
+                <td style="text-align: center;">
+                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
+                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>ARR-10-001</td>
+                <td>Arruela Lisa 10mm</td>
+                <td>Fixação</td>
+                <td>300</td>
+                <td>UN</td>
+                <td style="text-align: center;">
+                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
+                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div id="materialModal" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3 class="modal-title">Criar Novo Material</h3>
+            <button class="modal-close" onclick="closeModal()">
+                <i data-lucide="x" size="24"></i>
+            </button>
+        </div>
+        
+        <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="sku">SKU *</label>
+                    <input type="text" id="sku" name="sku" placeholder="Ex: PAR-M8-001">
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição *</label>
+                    <input type="text" id="descricao" name="descricao" placeholder="Ex: Parafuso M8">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="categoria">Categoria *</label>
+                    <select id="categoria" name="categoria">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="fixacao">Fixação</option>
+                        <option value="eletrica">Elétrica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="unidade">Unidade de Medida *</label>
+                    <select id="unidade" name="unidade">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="un">UN</option>
+                        <option value="kg">KG</option>
+                        <option value="m">M</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fornecedor">Fornecedor Padrão</label>
+                    <select id="fornecedor" name="fornecedor">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="1">Fornecedor A</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="picking">Endereço de Picking</label>
+                    <select id="picking" name="picking">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="A1">01-A-01</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="btn-confirm">Salvar Material</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById('materialModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('materialModal').classList.remove('active');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('materialModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+</script>
+{% endblock %}

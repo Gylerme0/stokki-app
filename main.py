@@ -84,3 +84,19 @@ async def relatorios_giro(request: Request):
 @app.get("/relatorios/abc")
 async def relatorios_abc(request: Request):
     return templates.TemplateResponse("relatorios/abc.html", {"request": request})
+
+@app.get("/cadastros")
+async def cadastros_index(request: Request):
+    return templates.TemplateResponse("cadastros/index.html", {"request": request})
+
+@app.get("/cadastros/materiais")
+async def cadastros_materiais(request: Request):
+    return templates.TemplateResponse("cadastros/materiais.html", {"request": request})
+
+@app.get("/cadastros/fornecedores")
+async def cadastros_fornecedores(request: Request):
+    return templates.TemplateResponse("cadastros/fornecedores.html", {"request": request})
+
+@app.get("/cadastros/enderecos")
+async def cadastros_enderecos(request: Request):
+    return templates.TemplateResponse("cadastros/enderecos.html", {"request": request})
