@@ -24,46 +24,18 @@
             </tr>
         </thead>
         <tbody>
+            {% for usuario in usuarios %}
             <tr>
-                <td>João Silva</td>
-                <td>joao@stokki.com</td>
-                <td><span class="access-level">Supervisor</span></td>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.email }}</td>
+                <td><span class="access-level">{{ usuario.role }}</span></td>
                 <td><span class="user-status status-active">Ativo</span></td>
                 <td style="text-align: center;">
                     <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
                     <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
                 </td>
             </tr>
-            <tr>
-                <td>Maria Santos</td>
-                <td>maria@stokki.com</td>
-                <td><span class="access-level" style="background-color: #D1FAE5; color: #065F46;">Operador</span></td>
-                <td><span class="user-status status-active">Ativo</span></td>
-                <td style="text-align: center;">
-                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
-                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td>Pedro Costa</td>
-                <td>pedro@stokki.com</td>
-                <td><span class="access-level" style="background-color: #D1FAE5; color: #065F46;">Operador</span></td>
-                <td><span class="user-status status-active">Ativo</span></td>
-                <td style="text-align: center;">
-                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
-                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td>Ana Oliveira</td>
-                <td>ana@stokki.com</td>
-                <td><span class="access-level">Supervisor</span></td>
-                <td><span class="user-status status-inactive">Inativo</span></td>
-                <td style="text-align: center;">
-                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
-                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
-                </td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
@@ -78,20 +50,20 @@
             </button>
         </div>
         
-        <form>
+        <form method="POST" action="/administracao/usuarios">
             <div class="form-group" style="margin-bottom: 1rem;">
                 <label for="nome">Nome Completo *</label>
-                <input type="text" id="nome" name="nome" placeholder="Ex: João Silva">
+                <input type="text" id="nome" name="username" placeholder="Ex: João Silva" required>
             </div>
 
             <div class="form-group" style="margin-bottom: 1rem;">
                 <label for="email">E-mail *</label>
-                <input type="email" id="email" name="email" placeholder="joao@stokki.com">
+                <input type="email" id="email" name="email" placeholder="joao@stokki.com" required>
             </div>
 
             <div class="form-group" style="margin-bottom: 1rem;">
                 <label for="nivel">Nível de Acesso *</label>
-                <select id="nivel" name="nivel">
+                <select id="nivel" name="role" required>
                     <option value="" disabled selected>Selecione</option>
                     <option value="supervisor">Supervisor</option>
                     <option value="operador">Operador</option>
@@ -101,7 +73,7 @@
 
             <div class="form-group">
                 <label for="senha">Senha *</label>
-                <input type="password" id="senha" name="senha" placeholder="********">
+                <input type="password" id="senha" name="password" placeholder="********" required>
             </div>
 
             <div class="modal-footer">

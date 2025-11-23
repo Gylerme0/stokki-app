@@ -25,39 +25,20 @@
             </tr>
         </thead>
         <tbody>
+        <tbody>
+            {% for material in materiais %}
             <tr>
-                <td>PAR-M8-001</td>
-                <td>Parafuso M8 x 50mm</td>
-                <td>Fixação</td>
-                <td>500</td>
-                <td>UN</td>
+                <td>{{ material.sku }}</td>
+                <td>{{ material.descricao }}</td>
+                <td>{{ material.categoria.nome }}</td>
+                <td>{{ material.estoque_atual }}</td>
+                <td>{{ material.unidade.sigla }}</td>
                 <td style="text-align: center;">
                     <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
                     <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
                 </td>
             </tr>
-            <tr>
-                <td>POR-M8-001</td>
-                <td>Porca M8</td>
-                <td>Fixação</td>
-                <td>450</td>
-                <td>UN</td>
-                <td style="text-align: center;">
-                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
-                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td>ARR-10-001</td>
-                <td>Arruela Lisa 10mm</td>
-                <td>Fixação</td>
-                <td>300</td>
-                <td>UN</td>
-                <td style="text-align: center;">
-                    <button class="action-icon"><i data-lucide="pencil" size="16"></i></button>
-                    <button class="action-icon delete"><i data-lucide="trash-2" size="16"></i></button>
-                </td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
@@ -72,34 +53,35 @@
             </button>
         </div>
         
-        <form>
+        <form method="POST" action="/cadastros/materiais">
             <div class="form-row">
                 <div class="form-group">
                     <label for="sku">SKU *</label>
-                    <input type="text" id="sku" name="sku" placeholder="Ex: PAR-M8-001">
+                    <input type="text" id="sku" name="sku" placeholder="Ex: PAR-M8-001" required>
                 </div>
                 <div class="form-group">
                     <label for="descricao">Descrição *</label>
-                    <input type="text" id="descricao" name="descricao" placeholder="Ex: Parafuso M8">
+                    <input type="text" id="descricao" name="descricao" placeholder="Ex: Parafuso M8" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="categoria">Categoria *</label>
-                    <select id="categoria" name="categoria">
+                    <select id="categoria" name="categoria_id" required>
                         <option value="" disabled selected>Selecione</option>
-                        <option value="fixacao">Fixação</option>
-                        <option value="eletrica">Elétrica</option>
+                        {% for categoria in categorias %}
+                        <option value="{{ categoria.id }}">{{ categoria.nome }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="unidade">Unidade de Medida *</label>
-                    <select id="unidade" name="unidade">
+                    <select id="unidade" name="unidade_id" required>
                         <option value="" disabled selected>Selecione</option>
-                        <option value="un">UN</option>
-                        <option value="kg">KG</option>
-                        <option value="m">M</option>
+                        {% for unidade in unidades %}
+                        <option value="{{ unidade.id }}">{{ unidade.sigla }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
