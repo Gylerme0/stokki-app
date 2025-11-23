@@ -1,6 +1,6 @@
 Stokki - Gestão de Almoxarifado Inteligente
 
-![Stokki](https://github.com/Gylerme0/stokki-app/static/img/dashboard-stokki.png)
+![Stokki](https://github.com/Gylerme0/stokki-app/blob/main/static/img/dashboard-stokki.png)
 
 A simplicidade que o operador precisa com a inteligência que o gestor exige.
 
