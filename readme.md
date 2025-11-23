@@ -105,6 +105,22 @@ Inicie o servidor de desenvolvimento:
 
 uvicorn main:app --reload
 
+# 🐳 Como Rodar com Docker
+
+Certifique-se de ter o Docker e o Docker Compose instalados.
+
+1. Construa e inicie os containers:
+```bash
+docker-compose up --build
+```
+
+2. Acesse a aplicação em: [http://localhost:8000](http://localhost:8000)
+
+Para parar a execução:
+```bash
+docker-compose down
+```
+
 
 # 🤝 Contribuição
 

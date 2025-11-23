@@ -5,3 +5,4 @@ venv/
 .venv/
 stokki.db
 .DS_Store
+docker-compose.yml

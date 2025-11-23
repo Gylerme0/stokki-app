@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  stokki:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./stokki.db:/app/stokki.db
+    env_file:
+      - .env
+    restart: always
+ 
