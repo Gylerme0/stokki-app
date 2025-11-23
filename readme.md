@@ -101,10 +101,9 @@ Configure as variáveis de ambiente:
 cp .env.example .env
 Edite o arquivo .env com suas credenciais
 
-
 Inicie o servidor de desenvolvimento:
 
-npm run dev
+uvicorn main:app --reload
 
 
 # 🤝 Contribuição
