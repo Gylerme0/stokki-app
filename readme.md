@@ -1,4 +1,4 @@
-# Stokki - Gestão de Almoxarifado Inteligente
+# Stokki - Gestão de Estoque Inteligente
 
 ![Stokki](https://github.com/Gylerme0/stokki-app/blob/main/static/img/dashboard-stokki.png)
 
