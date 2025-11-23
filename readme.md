@@ -114,7 +114,7 @@ Membros da equipe:
 
 Guilherme Oliveira
 
-Leornado Andrade
+Leonardo Andrade
 
 Eric Carneiro
 
