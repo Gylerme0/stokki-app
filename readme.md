@@ -54,42 +54,6 @@ Posição de Estoque: Relatório detalhado de saldo por endereço físico.
 
 O projeto segue rigorosamente um guia de estilos baseado no Google Material Design, priorizando a legibilidade e a hierarquia visual para evitar erros operacionais.
 
-Cor
-
-Hex
-
-Uso Principal
-
-Brand Blue
-
-#1A2F5A
-
-Navegação, Botões Primários (CTA)
-
-Accent Green
-
-#4CAF50
-
-Sucesso, Status "Em Estoque"
-
-Dynamic Blue
-
-#03A9F4
-
-Destaques, Sugestões de IA
-
-Error Red
-
-#F44336
-
-Ruptura de Estoque, Erros Críticos
-
-Warning
-
-#FFC107
-
-Alertas de Estoque Mínimo
-
 🗺️ Roadmap do Produto
 
 O desenvolvimento é dividido em fases estratégicas:
