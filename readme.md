@@ -113,8 +113,11 @@ Este projeto é parte de um trabalho acadêmico de [Nome da Disciplina] da [Nome
 Membros da equipe:
 
 Guilherme Oliveira
+
 Leornado Andrade
+
 Eric Carneiro
+
 Vinicius Pires
 
 Desenvolvido com 💙 pela equipe Stokki.
