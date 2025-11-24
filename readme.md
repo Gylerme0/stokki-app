@@ -105,10 +105,10 @@ Certifique-se de ter o Docker e o Docker Compose instalados.
 
 2. Acesse a aplicação em: [http://localhost:8000](http://localhost:8000)
 
-Para parar a execução:
-```bash
-docker-compose down
-```
+3. Para parar a execução:
+   ```bash
+    docker-compose down
+    ```
 
 ## 🤝 Contribuição
 
